@@ -1,6 +1,6 @@
 package com.guang.stream.order;
 
-import org.springframework.stereotype.Component;
+
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -9,7 +9,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author guangyong.deng
  * @date 2021-11-23 16:51
  */
-// @Component
 public class Stock {
 
     private final Map<Product, StockItem> stockItemMap = new ConcurrentHashMap<>();

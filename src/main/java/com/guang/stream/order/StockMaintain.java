@@ -1,6 +1,5 @@
 package com.guang.stream.order;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Flow.Subscriber;
@@ -20,7 +19,7 @@ public class StockMaintain implements Subscriber<Order> {
 
     private ExecutorService service = ForkJoinPool.commonPool();
 
-    public StockMaintain(@Autowired Stock stock) {
+    public StockMaintain(Stock stock) {
         this.stock = stock;
     }
 
@@ -37,8 +36,9 @@ public class StockMaintain implements Subscriber<Order> {
         service.submit(() -> {
             order.getItems().forEach(item -> {
                 stock.remove(item.getProduct(), item.getAmount());
-                System.out.println("");
+                // System.out.println("");
             });
+            subscription.request(1);
         });
     }
 
