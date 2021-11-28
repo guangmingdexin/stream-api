@@ -5,6 +5,7 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.observables.ConnectableObservable;
 
 import java.math.BigInteger;
 
@@ -122,6 +123,38 @@ public class RxJavaDemo {
 
     }
 
+    public static void infiniteTest() {
+
+        ConnectableObservable<Object> observable = Observable.create(observer -> {
+            BigInteger i = BigInteger.ZERO;
+            while (true) {
+                observer.onNext(i);
+                i = i.add(BigInteger.ONE);
+
+            }
+        }).publish();
+        Disposable disposable = observable.subscribe(RxUtil::log);
+        observable.connect();
+
+        disposable.dispose();
+    }
+
+    public static void infiniteOomTest() {
+        // 1. 实际类型为 Cache
+        Observable<Object> observable = Observable.create(observer -> {
+            BigInteger i = BigInteger.ZERO;
+            while (true) {
+                observer.onNext(i);
+                i = i.add(BigInteger.ONE);
+
+            }
+
+        }).cache();
+
+        Disposable subscribe = observable.subscribe(RxUtil::log);
+
+    }
+
    static void infiniteUndispose() {
 
         Observable<Object> cache = Observable.create(observer -> {
@@ -130,7 +163,7 @@ public class RxJavaDemo {
                 while (!observer.isDisposed()) {
                     observer.onNext(i);
                     i = i.add(BigInteger.ONE);
-                    System.out.println(Thread.currentThread().getName() + "-消费的数字-" + i.toString());
+                    System.out.println(Thread.currentThread().getName() + "-消费的数字-" + i);
                 }
             });
             t.start();
@@ -162,7 +195,8 @@ public class RxJavaDemo {
         // 2.确定关键步骤
         // 3.画出流程
        // obs_cache();
+       // infiniteOomTest();
         infiniteUndispose();
-
+       // infiniteTest();
     }
 }
