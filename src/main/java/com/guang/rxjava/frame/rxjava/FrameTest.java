@@ -1,6 +1,6 @@
-package com.guang.rxjava.frame;
+package com.guang.rxjava.frame.rxjava;
 
-import com.guang.rxjava.frame.observable.FrameObservable;
+import com.guang.rxjava.frame.rxjava.observable.FrameObservable;
 
 /**
  * @author guangyong.deng

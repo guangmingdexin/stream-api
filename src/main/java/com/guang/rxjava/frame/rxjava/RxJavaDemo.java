@@ -1,13 +1,12 @@
-package com.guang.rxjava;
+package com.guang.rxjava.frame.rxjava;
 
-import com.guang.rxjava.util.RxUtil;
+import com.guang.rxjava.frame.rxjava.util.RxUtil;
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observables.ConnectableObservable;
 
 import java.math.BigInteger;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author guangyong.deng
@@ -133,6 +132,7 @@ public class RxJavaDemo {
 
             }
         }).publish();
+
         Disposable disposable = observable.subscribe(RxUtil::log);
         observable.connect();
 
@@ -188,6 +188,19 @@ public class RxJavaDemo {
 
     }
 
+    public static void intervalTest() {
+        Observable.interval(1, TimeUnit.SECONDS)
+                .map(i -> "第 i 次！" + i)
+                .subscribe(System.out::println);
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static void main(String[] args) {
        // observable();
       //  rangeTest();
@@ -196,7 +209,8 @@ public class RxJavaDemo {
         // 3.画出流程
        // obs_cache();
        // infiniteOomTest();
-        infiniteUndispose();
-       // infiniteTest();
+       // infiniteUndispose();
+       infiniteTest();
+       // intervalTest();
     }
 }

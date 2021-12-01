@@ -1,6 +1,6 @@
-package com.guang.rxjava.frame.observer;
+package com.guang.rxjava.frame.rxjava.observer;
 
-import com.guang.rxjava.frame.disposable.FrameDisposable;
+import com.guang.rxjava.frame.rxjava.disposable.FrameDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 

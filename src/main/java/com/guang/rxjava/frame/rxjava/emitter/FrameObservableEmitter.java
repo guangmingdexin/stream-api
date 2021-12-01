@@ -1,4 +1,4 @@
-package com.guang.rxjava.frame.emitter;
+package com.guang.rxjava.frame.rxjava.emitter;
 
 import io.reactivex.Emitter;
 

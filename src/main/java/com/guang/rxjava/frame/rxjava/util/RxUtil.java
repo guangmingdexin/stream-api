@@ -1,4 +1,4 @@
-package com.guang.rxjava.util;
+package com.guang.rxjava.frame.rxjava.util;
 
 /**
  * @author guangyong.deng

@@ -1,4 +1,4 @@
-package com.guang.rxjava.frame.disposable;
+package com.guang.rxjava.frame.rxjava.disposable;
 
 /**
  * @author guangyong.deng

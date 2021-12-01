@@ -1,6 +1,6 @@
-package com.guang.rxjava.frame.observable;
+package com.guang.rxjava.frame.rxjava.observable;
 
-import com.guang.rxjava.frame.observer.FrameObserver;
+import com.guang.rxjava.frame.rxjava.observer.FrameObserver;
 import io.reactivex.annotations.NonNull;
 
 /**

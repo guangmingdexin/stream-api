@@ -1,4 +1,4 @@
-package com.guang.rxjava.frame.observer;
+package com.guang.rxjava.frame.rxjava.observer;
 
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
