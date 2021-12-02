@@ -17,15 +17,15 @@ public class FluxDemo {
 
     public static void fluxCreateDemo() {
 
-//        Flux.create(new Consumer<FluxSink<? extends Object>>() {
+//        Flux.create(new Consumer<FrameFluxSink<? extends Object>>() {
 //            @Override
-//            public void accept(FluxSink<?> fluxSink) {
+//            public void accept(FrameFluxSink<?> fluxSink) {
 //
 //            }
 //        });
 
         Flux<Object> flux = Flux.create(obserser -> {
-            // FluxSink 的匿名实现类
+            // FrameFluxSink 的匿名实现类
 
             obserser.next("处理的数字： " + Math.random() * 100);
         });
@@ -61,7 +61,11 @@ public class FluxDemo {
     }
 
     public static void main(String[] args) {
-       // fluxCreateDemo();
-        fluxBufferTest();
+       fluxCreateDemo();
+      //  fluxBufferTest();
+
+//        String regex = "20\\d\\d";
+//        System.out.println("2019".matches(regex));
+//        System.out.println("2119".matches(regex));
     }
 }
